@@ -2,19 +2,24 @@ package com.groupekilo.myproject.entities;
 
 import java.io.Serializable;
 
-public class Serveur implements Serializable {
- private int idServ;
+public class Serveur implements Serializable{
+private static final long serialVersionUID = 1L;
+private int idServ;
  private String nomServ;
  private String adripServ;
-   public Serveur() {
+public Serveur() {
 	super();
-   }
-   public Serveur(int idServ, String nomServ, String adripServ) {
+}
+
+public Serveur(int idServ, String nomServ, String adripServ) {
 	super();
 	this.idServ = idServ;
 	this.nomServ = nomServ;
 	this.adripServ = adripServ;
-   }
+}
+
+
+
 public int getIdServ() {
 	return idServ;
 }
@@ -33,9 +38,5 @@ public String getAdripServ() {
 public void setAdripServ(String adripServ) {
 	this.adripServ = adripServ;
 }
- 
- 
- 
- 
  
 }

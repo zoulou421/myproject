@@ -4,14 +4,4 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
-  <servlet>
-  	<servlet-name>BonjourServlet</servlet-name>
-  	<display-name>BonjourServlet</display-name>
-  	<description></description>
-  	<servlet-class>com.groupekilo.myproject.BonjourServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-  	<servlet-name>BonjourServlet</servlet-name>
-  	<url-pattern>/BonjourServlet</url-pattern>
-  </servlet-mapping>
 </web-app>

@@ -7,18 +7,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class DB {
+
 	//for connexion
     private Connection cnx;
-
-    //for request results of SELECT type
+  //for request results of SELECT type
     private ResultSet rs;
-
-    //For Prepared request
+  //For Prepared request
     private PreparedStatement preparedStatement;
-
-    //for requests result of type UPDATE(INSERT,UPDATE,DELETE)
+  //for requests result of type UPDATE(INSERT,UPDATE,DELETE)
     private int ok;
-
     private void getConnection()  {
         String url="jdbc:mysql://localhost:3306/db_categorie";
         String user="root";
@@ -26,13 +23,14 @@ public class DB {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             cnx=DriverManager.getConnection(url,user,password);
-            System.out.println("Connection succeeded!");
-        } catch (ClassNotFoundException | SQLException e) {
-        	System.out.println("Connection failed!");
-            throw new RuntimeException(e);
+            System.out.println("Succès connection BDD");
+        } catch (Exception e) {
+        	System.out.println("Echec connection BDD");
+            e.printStackTrace();
         }
     }
-
+    
+    
     public void initPrepare(String sql){
         try {
             getConnection();
@@ -41,7 +39,7 @@ public class DB {
             throw new RuntimeException(e);
         }
     }
-
+    
     public ResultSet executeSelect(){
         try {
             rs=preparedStatement.executeQuery();
@@ -50,7 +48,7 @@ public class DB {
         }
         return rs;
     }
-
+    
     public int executeMaj(){
         try {
             ok=preparedStatement.executeUpdate();
@@ -59,7 +57,7 @@ public class DB {
         }
         return ok;
     }
-
+    
     public void closeConnection(){
         try {
             if(cnx!=null){
@@ -69,10 +67,9 @@ public class DB {
             throw new RuntimeException(e);
         }
     }
-
+    
     public PreparedStatement getPreparedStatement() throws SQLException{
         return preparedStatement;
     }
-
-
+    
 }
